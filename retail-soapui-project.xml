@@ -1,0 +1,1524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="c0cd5ad7-756d-49b3-8f4b-21c8165caf5c" activeEnvironment="Default" name="retail" soapui-version="5.1.2" resourceRoot="" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Environment" value="Default"/>
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="Project"/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="user-settings.xml Password" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+  <con:entry key="Select Report Type" value=""/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="d0a1e560-b46b-4d54-a28c-de74f73e0f25" wsaVersion="NONE" name="RetailAppBinding" type="wsdl" bindingName="{http://localhost/retail/namespaces}RetailAppBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost/retail/retail.php?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost/retail/retail.php?wsdl"><con:part><con:url>http://localhost/retail/retail.php?wsdl</con:url><con:content><![CDATA[<definitions targetNamespace="http://localhost/retail/namespaces" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://localhost/retail/namespaces" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="http://localhost/retail/namespaces">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+      <xsd:complexType name="credentials">
+        <xsd:all>
+          <xsd:element name="username" type="xsd:string"/>
+          <xsd:element name="password" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="loginresponse">
+        <xsd:all>
+          <xsd:element name="loginusername" type="xsd:string"/>
+          <xsd:element name="sessionid" type="xsd:string"/>
+          <xsd:element name="role" type="xsd:string"/>
+          <xsd:element name="loginstatus" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="testBook">
+        <xsd:all>
+          <xsd:element name="catgoryName" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="categoryadddetail">
+        <xsd:all>
+          <xsd:element name="categoryname" type="xsd:string"/>
+          <xsd:element name="catid" type="xsd:string"/>
+          <xsd:element name="status" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="categoryadddetails">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:categoryadddetail[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="allcaties">
+        <xsd:all>
+          <xsd:element name="categorydetails" type="tns:categoryadddetails"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addnewproductdetails">
+        <xsd:all>
+          <xsd:element name="category_name" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="available_quantity" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="proddetail">
+        <xsd:all>
+          <xsd:element name="category_name" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:string"/>
+          <xsd:element name="product_id" type="xsd:string"/>
+          <xsd:element name="status" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="proddetails">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:proddetail[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="allproductsadded">
+        <xsd:all>
+          <xsd:element name="productdetails" type="tns:proddetails"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addproductdetails">
+        <xsd:all>
+          <xsd:element name="prod_id" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="available_quantity" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="updateproduct">
+        <xsd:all>
+          <xsd:element name="prod_id" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:string"/>
+          <xsd:element name="status" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="updateproducts">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:updateproduct[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="updateproductdetails">
+        <xsd:all>
+          <xsd:element name="productdetails" type="tns:updateproducts"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="productdetail">
+        <xsd:all>
+          <xsd:element name="category_id" type="xsd:string"/>
+          <xsd:element name="product_id" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="price" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="productdetails">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:productdetail[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="sessiondetail">
+        <xsd:all>
+          <xsd:element name="sessionid" type="xsd:string"/>
+          <xsd:element name="username" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="sessiondetails">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:sessiondetail[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="allprods">
+        <xsd:all>
+          <xsd:element name="allproducts" type="tns:productdetails"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addtocartReq">
+        <xsd:all>
+          <xsd:element name="prod_id" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addtocart">
+        <xsd:all>
+          <xsd:element name="prod_id" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+          <xsd:element name="status" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="addtocartdetails">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:addtocart[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="cart">
+        <xsd:all>
+          <xsd:element name="cart_status" type="tns:addtocartdetails"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="removefromCartReq">
+        <xsd:all>
+          <xsd:element name="prod_id" type="xsd:string"/>
+          <xsd:element name="product_name" type="xsd:string"/>
+          <xsd:element name="quantity" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="categorydetail">
+        <xsd:all>
+          <xsd:element name="category_id" type="xsd:string"/>
+          <xsd:element name="category_name" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="categorydetails">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:categorydetail[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="allcats">
+        <xsd:all>
+          <xsd:element name="allcategories" type="tns:categorydetails"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cartproduct">
+        <xsd:all>
+          <xsd:element name="category_id" type="xsd:string"/>
+          <xsd:element name="prod_id" type="xsd:string"/>
+          <xsd:element name="prod_name" type="xsd:string"/>
+          <xsd:element name="prod_quantity" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="cartproducts">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:cartproduct[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="cartprods">
+        <xsd:all>
+          <xsd:element name="cart" type="tns:cartproducts"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="chkout">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="checkout">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:chkout[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="checkoutprods">
+        <xsd:all>
+          <xsd:element name="checkedout_items" type="tns:checkout"/>
+          <xsd:element name="sessiondata" type="tns:sessiondetails"/>
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="RetailLoginRequest">
+    <part name="credentials" type="tns:credentials"/>
+  </message>
+  <message name="RetailLoginResponse">
+    <part name="return" type="tns:loginresponse"/>
+  </message>
+  <message name="addcategoryRequest">
+    <part name="categorydetails" type="tns:testBook"/>
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="addcategoryResponse">
+    <part name="return" type="tns:allcaties"/>
+  </message>
+  <message name="addproductRequest">
+    <part name="productdetails" type="tns:addnewproductdetails"/>
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="addproductResponse">
+    <part name="return" type="tns:allproductsadded"/>
+  </message>
+  <message name="updateproductRequest">
+    <part name="productdetails" type="tns:addproductdetails"/>
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="updateproductResponse">
+    <part name="return" type="tns:updateproductdetails"/>
+  </message>
+  <message name="GetAllProductsRequest">
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="GetAllProductsResponse">
+    <part name="return" type="tns:allprods"/>
+  </message>
+  <message name="searchProductRequest">
+    <part name="productname" type="xsd:string"/>
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="searchProductResponse">
+    <part name="return" type="tns:allprods"/>
+  </message>
+  <message name="addProductsToCartRequest">
+    <part name="addtocart" type="tns:addtocartReq"/>
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="addProductsToCartResponse">
+    <part name="return" type="tns:cart"/>
+  </message>
+  <message name="removeFromCartRequest">
+    <part name="remove_from_cart" type="tns:removefromCartReq"/>
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="removeFromCartResponse">
+    <part name="return" type="tns:cart"/>
+  </message>
+  <message name="GetAllCategoriesRequest">
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="GetAllCategoriesResponse">
+    <part name="return" type="tns:allcats"/>
+  </message>
+  <message name="getAllProductsInCartRequest">
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="getAllProductsInCartResponse">
+    <part name="return" type="tns:cartprods"/>
+  </message>
+  <message name="checkoutRequest">
+    <part name="sessiondata" type="tns:sessiondetail"/>
+  </message>
+  <message name="checkoutResponse">
+    <part name="return" type="tns:checkoutprods"/>
+  </message>
+  <portType name="RetailAppPortType">
+    <operation name="RetailLogin">
+      <documentation>Greet a person entering the sweepstakes</documentation>
+      <input message="tns:RetailLoginRequest"/>
+      <output message="tns:RetailLoginResponse"/>
+    </operation>
+    <operation name="addcategory">
+      <documentation>Add a category</documentation>
+      <input message="tns:addcategoryRequest"/>
+      <output message="tns:addcategoryResponse"/>
+    </operation>
+    <operation name="addproduct">
+      <documentation>Add a category</documentation>
+      <input message="tns:addproductRequest"/>
+      <output message="tns:addproductResponse"/>
+    </operation>
+    <operation name="updateproduct">
+      <documentation>Update a product</documentation>
+      <input message="tns:updateproductRequest"/>
+      <output message="tns:updateproductResponse"/>
+    </operation>
+    <operation name="GetAllProducts">
+      <documentation>Greet a person entering the sweepstakes</documentation>
+      <input message="tns:GetAllProductsRequest"/>
+      <output message="tns:GetAllProductsResponse"/>
+    </operation>
+    <operation name="searchProduct">
+      <documentation>Greet a person entering the sweepstakes</documentation>
+      <input message="tns:searchProductRequest"/>
+      <output message="tns:searchProductResponse"/>
+    </operation>
+    <operation name="addProductsToCart">
+      <documentation>Add products to cart</documentation>
+      <input message="tns:addProductsToCartRequest"/>
+      <output message="tns:addProductsToCartResponse"/>
+    </operation>
+    <operation name="removeFromCart">
+      <documentation>Add products to cart</documentation>
+      <input message="tns:removeFromCartRequest"/>
+      <output message="tns:removeFromCartResponse"/>
+    </operation>
+    <operation name="GetAllCategories">
+      <documentation>Greet a person entering the sweepstakes</documentation>
+      <input message="tns:GetAllCategoriesRequest"/>
+      <output message="tns:GetAllCategoriesResponse"/>
+    </operation>
+    <operation name="getAllProductsInCart">
+      <documentation>Greet a person entering the sweepstakes</documentation>
+      <input message="tns:getAllProductsInCartRequest"/>
+      <output message="tns:getAllProductsInCartResponse"/>
+    </operation>
+    <operation name="checkout">
+      <documentation>Greet a person entering the sweepstakes</documentation>
+      <input message="tns:checkoutRequest"/>
+      <output message="tns:checkoutResponse"/>
+    </operation>
+  </portType>
+  <binding name="RetailAppBinding" type="tns:RetailAppPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="RetailLogin">
+      <soap:operation soapAction="urn:RetailApp#RetailLogin" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="addcategory">
+      <soap:operation soapAction="urn:RetailApp#addCategory" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="addproduct">
+      <soap:operation soapAction="urn:RetailApp#addCategory" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="updateproduct">
+      <soap:operation soapAction="urn:RetailApp#updateproduct" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="GetAllProducts">
+      <soap:operation soapAction="urn:RetailApp#GetAllProducts" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="searchProduct">
+      <soap:operation soapAction="urn:RetailApp#GetAllProducts" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="addProductsToCart">
+      <soap:operation soapAction="urn:RetailApp#addProductsToCart" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="removeFromCart">
+      <soap:operation soapAction="urn:RetailApp#addProductsToCart" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="GetAllCategories">
+      <soap:operation soapAction="urn:RetailApp#GetAllProducts" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="getAllProductsInCart">
+      <soap:operation soapAction="urn:RetailApp#getAllProductsInCart" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="checkout">
+      <soap:operation soapAction="urn:RetailApp#checkout" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:RetailApp" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="RetailApp">
+    <port name="RetailAppPort" binding="tns:RetailAppBinding">
+      <soap:address location="http://localhost/retail/retail.php"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost/retail/retail.php</con:endpoint></con:endpoints><con:operation id="d692fcca-51d7-4601-b1bf-02a3c0e0054f" isOneWay="false" action="urn:RetailApp#addCategory" name="addcategory" bindingOperationName="addcategory" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7a90c742-ade0-489d-a450-821a2f8aa059" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addcategory soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <categorydetails xsi:type="nam:testBook" xmlns:nam="http://localhost/retail/namespaces">\r
+            <catgoryName xsi:type="xsd:string">?</catgoryName>\r
+         </categorydetails>\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">?</sessionid>\r
+            <username xsi:type="xsd:string">?</username>\r
+         </sessiondata>\r
+      </urn:addcategory>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#addCategory"/></con:call></con:operation><con:operation id="67490fac-1fbf-4bf5-a85c-6bbc88bb68e9" isOneWay="false" action="urn:RetailApp#addCategory" name="addproduct" bindingOperationName="addproduct" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cbbd626b-2470-42e0-8b19-7136956a8d84" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addproduct soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <productdetails xsi:type="nam:addnewproductdetails" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 4 items in any order-->\r
+            <category_name xsi:type="xsd:string">?</category_name>\r
+            <product_name xsi:type="xsd:string">?</product_name>\r
+            <available_quantity xsi:type="xsd:string">?</available_quantity>\r
+            <price xsi:type="xsd:string">?</price>\r
+         </productdetails>\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">?</sessionid>\r
+            <username xsi:type="xsd:string">?</username>\r
+         </sessiondata>\r
+      </urn:addproduct>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#addCategory"/></con:call></con:operation><con:operation id="0f8e53ee-331b-4a2b-8cae-5177b60cf175" isOneWay="false" action="urn:RetailApp#addProductsToCart" name="addProductsToCart" bindingOperationName="addProductsToCart" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c78ec902-f0e0-4b85-9fcf-9aed7abbb211" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addProductsToCart soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <addtocart xsi:type="nam:addtocartReq" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 3 items in any order-->\r
+            <prod_id xsi:type="xsd:string">?</prod_id>\r
+            <product_name xsi:type="xsd:string">?</product_name>\r
+            <quantity xsi:type="xsd:string">?</quantity>\r
+         </addtocart>\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">?</sessionid>\r
+            <username xsi:type="xsd:string">?</username>\r
+         </sessiondata>\r
+      </urn:addProductsToCart>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#addProductsToCart"/></con:call></con:operation><con:operation id="cfadcf66-f038-4093-9b5d-b1cb1bc2158a" isOneWay="false" action="urn:RetailApp#checkout" name="checkout" bindingOperationName="checkout" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="533f99e0-9900-4e54-bfbc-44e99037e1fc" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:checkout soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">?</sessionid>\r
+            <username xsi:type="xsd:string">?</username>\r
+         </sessiondata>\r
+      </urn:checkout>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#checkout"/></con:call></con:operation><con:operation id="e376d061-e415-455a-acdc-fcabbe62054e" isOneWay="false" action="urn:RetailApp#GetAllProducts" name="GetAllCategories" bindingOperationName="GetAllCategories" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="41cb3908-4de2-4123-9d3e-166b72817bb3" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:GetAllCategories soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">?</sessionid>\r
+            <username xsi:type="xsd:string">?</username>\r
+         </sessiondata>\r
+      </urn:GetAllCategories>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#GetAllProducts"/></con:call></con:operation><con:operation id="2686da40-bddf-443b-8e26-d1ece65483df" isOneWay="false" action="urn:RetailApp#GetAllProducts" name="GetAllProducts" bindingOperationName="GetAllProducts" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="43ccb545-623f-4266-9f58-03ad9d2214ce" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:GetAllProducts soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">?</sessionid>\r
+            <username xsi:type="xsd:string">?</username>\r
+         </sessiondata>\r
+      </urn:GetAllProducts>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#GetAllProducts"/></con:call></con:operation><con:operation id="e9edd574-f0ca-4731-8297-31dcf78eab21" isOneWay="false" action="urn:RetailApp#getAllProductsInCart" name="getAllProductsInCart" bindingOperationName="getAllProductsInCart" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7a8c4f2c-a4ea-49b9-ac97-0edb9f674c5c" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:getAllProductsInCart soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">?</sessionid>\r
+            <username xsi:type="xsd:string">?</username>\r
+         </sessiondata>\r
+      </urn:getAllProductsInCart>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#getAllProductsInCart"/></con:call></con:operation><con:operation id="844d61d8-a707-4e0c-a8e7-4fc2fccbfc76" isOneWay="false" action="urn:RetailApp#addProductsToCart" name="removeFromCart" bindingOperationName="removeFromCart" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ba645d08-ee24-4f82-8202-d567ac9fb411" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:removeFromCart soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <remove_from_cart xsi:type="nam:removefromCartReq" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 3 items in any order-->\r
+            <prod_id xsi:type="xsd:string">?</prod_id>\r
+            <product_name xsi:type="xsd:string">?</product_name>\r
+            <quantity xsi:type="xsd:string">?</quantity>\r
+         </remove_from_cart>\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">?</sessionid>\r
+            <username xsi:type="xsd:string">?</username>\r
+         </sessiondata>\r
+      </urn:removeFromCart>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#addProductsToCart"/></con:call></con:operation><con:operation id="0e1b69ac-e84a-402f-a491-59ad4c43ed7e" isOneWay="false" action="urn:RetailApp#RetailLogin" name="RetailLogin" bindingOperationName="RetailLogin" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="252b22f1-9f69-4efd-a857-1c9dab2cb77e" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:RetailLogin soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <credentials xsi:type="nam:credentials" xs:type="type:credentials" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <username xsi:type="xsd:string" xs:type="type:string">?</username>
+            <password xsi:type="xsd:string" xs:type="type:string">?</password>
+         </credentials>
+      </urn:RetailLogin>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#RetailLogin"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3670b830-4049-4cbd-8970-595f253411e7" isOneWay="false" action="urn:RetailApp#GetAllProducts" name="searchProduct" bindingOperationName="searchProduct" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d38692bb-45ce-408c-993b-f6aa6ee0490b" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:searchProduct soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <productname xsi:type="xsd:string">?</productname>\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">?</sessionid>\r
+            <username xsi:type="xsd:string">?</username>\r
+         </sessiondata>\r
+      </urn:searchProduct>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#GetAllProducts"/></con:call></con:operation><con:operation id="21599756-17d5-47a9-81a7-20694e39cda4" isOneWay="false" action="urn:RetailApp#updateproduct" name="updateproduct" bindingOperationName="updateproduct" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fe9f09a3-de20-48c9-8d53-750ca46fcc15" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:updateproduct soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <productdetails xsi:type="nam:addproductdetails" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 4 items in any order-->\r
+            <prod_id xsi:type="xsd:string">?</prod_id>\r
+            <product_name xsi:type="xsd:string">?</product_name>\r
+            <available_quantity xsi:type="xsd:string">?</available_quantity>\r
+            <price xsi:type="xsd:string">?</price>\r
+         </productdetails>\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">?</sessionid>\r
+            <username xsi:type="xsd:string">?</username>\r
+         </sessiondata>\r
+      </urn:updateproduct>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:RetailApp#updateproduct"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="55c80acd-785d-4a8b-b7e6-8a982c1e0b9b" wsaVersion="NONE" name="MediCareSupplierSoap12" type="wsdl" bindingName="{http://www.webservicex.net/}MediCareSupplierSoap12" soapVersion="1_2" anonymous="optional" definition="http://www.webservicex.net/medicareSupplier.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.webservicex.net/medicareSupplier.asmx?wsdl"><con:part><con:url>http://www.webservicex.net/medicareSupplier.asmx?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.webservicex.net/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webservicex.net/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>This section provides names, addresses, and contact information for suppliers that provide services or products under the Medicare program. A supplier is an individual or entity that has agreed to provide health care equipment, items, or services under Medicare. A supplier may provide items such as: Durable Medical Equipment (wheelchairs, walkers, oxygen), Prosthetics (artificial limb replacements or dentures) or Orthotics (mechanical devices used to assist in mobility or supplement the joints and limbs). In addition, a type of supplier can also be Pharmacy/Drug Stores and Optometry/Opticians.This Supplier Directory lists Medicare enrolled pharmacies and suppliers.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.webservicex.net/">
+      <s:element name="GetSupplierByZipCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="zip" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSupplierByZipCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSupplierByZipCodeResult" type="s:boolean"/>
+            <s:element minOccurs="1" maxOccurs="1" name="SupplierDataLists" type="tns:SupplierDataList"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SupplierDataList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierDatas" type="tns:ArrayOfSupplierData"/>
+          <s:element minOccurs="1" maxOccurs="1" name="TotalRecords" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSupplierData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SupplierData" type="tns:SupplierData"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SupplierData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierNumber" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ZipPlus4" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Telephone" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="IsSupplierParticipating" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSupplierByCity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSupplierByCityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSupplierByCityResult" type="s:boolean"/>
+            <s:element minOccurs="1" maxOccurs="1" name="SupplierDataLists" type="tns:SupplierDataList"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSupplierBySupplyType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="description" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSupplierBySupplyTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSupplierBySupplyTypeResult" type="s:boolean"/>
+            <s:element minOccurs="1" maxOccurs="1" name="SupplierDataLists" type="tns:SupplierDataList"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSupplierByZipCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSupplierByZipCode"/>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierByZipCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSupplierByZipCodeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierByCitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSupplierByCity"/>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierByCitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSupplierByCityResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierBySupplyTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSupplierBySupplyType"/>
+  </wsdl:message>
+  <wsdl:message name="GetSupplierBySupplyTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSupplierBySupplyTypeResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="MediCareSupplierSoap">
+    <wsdl:operation name="GetSupplierByZipCode">
+      <wsdl:documentation>Get Supplier details by Zip Code</wsdl:documentation>
+      <wsdl:input message="tns:GetSupplierByZipCodeSoapIn"/>
+      <wsdl:output message="tns:GetSupplierByZipCodeSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierByCity">
+      <wsdl:documentation>Get Supplier details by City</wsdl:documentation>
+      <wsdl:input message="tns:GetSupplierByCitySoapIn"/>
+      <wsdl:output message="tns:GetSupplierByCitySoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierBySupplyType">
+      <wsdl:documentation>Get Supplier details by Supply Type</wsdl:documentation>
+      <wsdl:input message="tns:GetSupplierBySupplyTypeSoapIn"/>
+      <wsdl:output message="tns:GetSupplierBySupplyTypeSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MediCareSupplierHttpGet"/>
+  <wsdl:portType name="MediCareSupplierHttpPost"/>
+  <wsdl:binding name="MediCareSupplierSoap" type="tns:MediCareSupplierSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetSupplierByZipCode">
+      <soap:operation soapAction="http://www.webservicex.net/GetSupplierByZipCode" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierByCity">
+      <soap:operation soapAction="http://www.webservicex.net/GetSupplierByCity" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierBySupplyType">
+      <soap:operation soapAction="http://www.webservicex.net/GetSupplierBySupplyType" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MediCareSupplierSoap12" type="tns:MediCareSupplierSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetSupplierByZipCode">
+      <soap12:operation soapAction="http://www.webservicex.net/GetSupplierByZipCode" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierByCity">
+      <soap12:operation soapAction="http://www.webservicex.net/GetSupplierByCity" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSupplierBySupplyType">
+      <soap12:operation soapAction="http://www.webservicex.net/GetSupplierBySupplyType" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MediCareSupplierHttpGet" type="tns:MediCareSupplierHttpGet">
+    <http:binding verb="GET"/>
+  </wsdl:binding>
+  <wsdl:binding name="MediCareSupplierHttpPost" type="tns:MediCareSupplierHttpPost">
+    <http:binding verb="POST"/>
+  </wsdl:binding>
+  <wsdl:service name="MediCareSupplier">
+    <wsdl:documentation>This section provides names, addresses, and contact information for suppliers that provide services or products under the Medicare program. A supplier is an individual or entity that has agreed to provide health care equipment, items, or services under Medicare. A supplier may provide items such as: Durable Medical Equipment (wheelchairs, walkers, oxygen), Prosthetics (artificial limb replacements or dentures) or Orthotics (mechanical devices used to assist in mobility or supplement the joints and limbs). In addition, a type of supplier can also be Pharmacy/Drug Stores and Optometry/Opticians.This Supplier Directory lists Medicare enrolled pharmacies and suppliers.</wsdl:documentation>
+    <wsdl:port name="MediCareSupplierSoap" binding="tns:MediCareSupplierSoap">
+      <soap:address location="http://www.webservicex.net/medicareSupplier.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="MediCareSupplierSoap12" binding="tns:MediCareSupplierSoap12">
+      <soap12:address location="http://www.webservicex.net/medicareSupplier.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="MediCareSupplierHttpGet" binding="tns:MediCareSupplierHttpGet">
+      <http:address location="http://www.webservicex.net/medicareSupplier.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="MediCareSupplierHttpPost" binding="tns:MediCareSupplierHttpPost">
+      <http:address location="http://www.webservicex.net/medicareSupplier.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.webservicex.net/medicareSupplier.asmx</con:endpoint></con:endpoints><con:operation id="665e3b02-20ca-4afe-b3e2-bae8fa804a92" isOneWay="false" action="http://www.webservicex.net/GetSupplierByCity" name="GetSupplierByCity" bindingOperationName="GetSupplierByCity" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c76a23db-bcdd-42e9-ae02-1e0ce2b131cf" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/medicareSupplier.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net/">
+   <soap:Header/>
+   <soap:Body>
+      <web:GetSupplierByCity>
+         <!--Optional:-->
+         
+      <web:City>New york</web:City></web:GetSupplierByCity>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/MediCareSupplierSoap/GetSupplierByCityRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="aeabc773-4d4e-45d5-8cdf-22284985dbf9" isOneWay="false" action="http://www.webservicex.net/GetSupplierBySupplyType" name="GetSupplierBySupplyType" bindingOperationName="GetSupplierBySupplyType" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="87abf72a-a4c9-434a-a7ef-6d26738b7980" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/medicareSupplier.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net/">
+   <soap:Header/>
+   <soap:Body>
+      <web:GetSupplierBySupplyType>
+         <!--Optional:-->
+         
+      <web:description>123</web:description></web:GetSupplierBySupplyType>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/MediCareSupplierSoap/GetSupplierBySupplyTypeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="47e0b4a9-f581-4848-be05-d1e31865d857" isOneWay="false" action="http://www.webservicex.net/GetSupplierByZipCode" name="GetSupplierByZipCode" bindingOperationName="GetSupplierByZipCode" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5cbafedd-00d8-4aa3-af33-86ddb693929a" name="Request 1" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/medicareSupplier.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net/">
+   <soap:Header/>
+   <soap:Body>
+      <web:GetSupplierByZipCode>
+         <!--Optional:-->
+         
+      <web:zip>1024</web:zip></web:GetSupplierByZipCode>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/MediCareSupplierSoap/GetSupplierByZipCodeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="4ed6e099-50dd-4f0b-9f30-7f5999f7c7f1" name="Project"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="4573f9c8-4b52-49df-9adc-defdb7062821" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="request" name="Login" id="4308f088-ea16-461a-9ed1-b6b8cb2043ac"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>RetailLogin</con:operation><con:request name="Login" id="4cc781f6-c54a-4ae1-8e2f-4bea48b19885" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:RetailLogin soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <credentials xsi:type="nam:credentials" xs:type="type:credentials" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+            <password xsi:type="xsd:string" xs:type="type:string">p1Oj4us</password>
+         </credentials>
+      </urn:RetailLogin>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="237444f0-9764-4d91-86ea-08f296cf16e3"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="AddCatagory" id="82b559ab-458c-4c90-9925-d5664fa9eac7"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>addcategory</con:operation><con:request name="AddCatagory" id="f53f50df-97e6-4721-aaae-70e327135581" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <urn:addcategory soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <categorydetails xsi:type="nam:testBook" xmlns:nam="http://localhost/retail/namespaces">\r
+            <catgoryName xsi:type="xsd:string">ArtADB1234567e9876540</catgoryName>\r
+         </categorydetails>\r
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">\r
+            <!--You may enter the following 2 items in any order-->\r
+            <sessionid xsi:type="xsd:string">s9ty7I2AUL1508431268</sessionid>\r
+            <username xsi:type="xsd:string">sudhirpradhan89@gmail.com</username>\r
+         </sessiondata>\r
+      </urn:addcategory>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e831d4e5-9023-429f-b369-98280f1debe1"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="AddProduct" id="4a3efafb-0f8e-4aac-aa6d-7e58c65a3e21"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>addproduct</con:operation><con:request name="AddProduct" id="d27478cc-dbc4-42a2-996d-dc403caf9e59" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:addproduct soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <productdetails xsi:type="nam:addnewproductdetails" xs:type="type:addnewproductdetails" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 4 items in any order-->
+            <category_name xsi:type="xsd:string" xs:type="type:string">Bikes</category_name>
+            <product_name xsi:type="xsd:string" xs:type="type:string">Pulser</product_name>
+            <available_quantity xsi:type="xsd:string" xs:type="type:string">5</available_quantity>
+            <price xsi:type="xsd:string" xs:type="type:string">2000</price>
+         </productdetails>
+        <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <sessionid xsi:type="xsd:string" xs:type="type:string">M1xmZ6NqY61499398276</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com__soapadmin</username>
+         </sessiondata>
+      </urn:addproduct>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="e8164474-39ff-498b-9687-593e14cd4072"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="UpdateProduct" id="42e807ae-7002-4beb-8f86-3f0e8b733f0c"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>updateproduct</con:operation><con:request name="UpdateProduct" id="1ff52d34-55aa-476c-9ac0-1eeb017d9431" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:updateproduct soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <productdetails xsi:type="nam:addproductdetails" xs:type="type:addproductdetails" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 4 items in any order-->
+            <prod_id xsi:type="xsd:string" xs:type="type:string">1</prod_id>
+            <product_name xsi:type="xsd:string" xs:type="type:string">BMW</product_name>
+            <available_quantity xsi:type="xsd:string" xs:type="type:string">52</available_quantity>
+            <price xsi:type="xsd:string" xs:type="type:string">2000</price>
+         </productdetails>
+         <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <sessionid xsi:type="xsd:string" xs:type="type:string">M1xmZ6NqY61499398276</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com__soapadmin</username>
+         </sessiondata>
+      </urn:updateproduct>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="32f6d5ea-e2f7-4109-a5e6-c7ed53b470e8"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Login_Cust" id="8b7c15de-ef4c-414e-9cec-8ca0624fbe63"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>RetailLogin</con:operation><con:request name="Login_Cust" id="573212ec-fb00-42f5-8fe3-b1fa1f0f51ec" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:RetailLogin soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <credentials xsi:type="nam:credentials" xs:type="type:credentials" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <username xsi:type="xsd:string" xs:type="type:string">${#TestSuite#customer_username}</username>
+            <password xsi:type="xsd:string" xs:type="type:string">${#TestSuite#customer_password}</password>
+         </credentials>
+      </urn:RetailLogin>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="aed00908-df74-4738-8580-070a03dff4ae"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetAllCat" id="28f86ecb-dfd2-4822-b756-6e9a94b08477"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>GetAllCategories</con:operation><con:request name="GetAllCat" id="f04a25b9-36df-449c-9832-7416a78af920" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetAllCategories soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <sessionid xsi:type="xsd:string" xs:type="type:string">OZj0u3XDUM1499450857</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+         </sessiondata>
+      </urn:GetAllCategories>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="151c82b2-7e3e-44b9-8bc9-e3104655ed47"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetAllProd" id="d9553080-8597-498c-af4c-da385bb9dc58"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>GetAllProducts</con:operation><con:request name="GetAllProd" id="5fd3dc23-4d12-4933-a3b0-01d39af13132" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetAllProducts soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+           <sessionid xsi:type="xsd:string" xs:type="type:string">OZj0u3XDUM1499450857</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+         </sessiondata>
+      </urn:GetAllProducts>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="32338116-7327-45ca-b9fd-d96b8dd5b12c"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="SearchProduct" id="47af33c4-7569-44d5-9f9b-01dc4d7bd37f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>searchProduct</con:operation><con:request name="SearchProduct" id="b1d7cff5-729b-46f1-b12b-746e8179d84a" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:searchProduct soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <productname xsi:type="xsd:string" xs:type="type:string" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">Puma</productname>
+         <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <sessionid xsi:type="xsd:string" xs:type="type:string">vuq9F7T1Ch1499401440</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+         </sessiondata>
+      </urn:searchProduct>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="5a2f0021-2a81-4b49-83de-23426365001e"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="AddToProductCart" id="e2e76597-ca0c-4ad6-8e18-1337c61e913f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>addProductsToCart</con:operation><con:request name="AddToProductCart" id="57c7d87e-6aae-40b3-aeb7-6ea0e50fe7e2" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:addProductsToCart soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <addtocart xsi:type="nam:addtocartReq" xs:type="type:addtocartReq" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 3 items in any order-->
+            <prod_id xsi:type="xsd:string" xs:type="type:string">1</prod_id>
+            <product_name xsi:type="xsd:string" xs:type="type:string">Puma</product_name>
+            <quantity xsi:type="xsd:string" xs:type="type:string">6</quantity>
+         </addtocart>
+         <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+           <sessionid xsi:type="xsd:string" xs:type="type:string">KXFQ8XW37t1499450129</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>        </sessiondata>
+      </urn:addProductsToCart>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="372cb6f0-e0fe-4233-90b7-71f4f19271dd"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="RemovefromCart" id="7867f8a7-dc1b-4a69-95ed-9e2c9264a3bb"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>removeFromCart</con:operation><con:request name="RemovefromCart" id="7475761f-27ed-401c-aee3-d7869dd35e03" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:removeFromCart soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <remove_from_cart xsi:type="nam:removefromCartReq" xs:type="type:removefromCartReq" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 3 items in any order-->
+            <prod_id xsi:type="xsd:string" xs:type="type:string">1</prod_id>
+            <product_name xsi:type="xsd:string" xs:type="type:string">Puma</product_name>
+            <quantity xsi:type="xsd:string" xs:type="type:string">63</quantity>
+         </remove_from_cart>
+         <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+           <sessionid xsi:type="xsd:string" xs:type="type:string">KXFQ8XW37t1499450129</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+            </sessiondata>
+      </urn:removeFromCart>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="43884538-2288-4a5f-8410-2e8dbaa713c1"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="732bda22-324f-4c66-8b7b-d42700109663" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Module 10" searchProperties="true"><con:settings/><con:testStep type="request" name="ContainAssertion" id="6a9b0c51-c6ac-43fa-b219-c475e4ff249e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>searchProduct</con:operation><con:request name="ContainAssertion" id="679853cc-cb68-4f4f-8571-f3122202f93c" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:searchProduct soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <productname xsi:type="xsd:string" xs:type="type:string" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">Puma</productname>
+         <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <sessionid xsi:type="xsd:string" xs:type="type:string">S569HAX1b71499605163</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+         </sessiondata>
+      </urn:searchProduct>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="79e3e1e0-4796-4887-9c66-17cae1bc29ec"/><con:assertion type="Simple Contains" id="46f43ad5-4224-48f2-a966-2114b86d6064" name="Contains"><con:configuration><token>Puma</token><ignoreCase>true</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="cac5b80e-dc47-4189-a5dd-4a2bd7d67b87" name="Not Contains"><con:configuration><token>BMW</token><ignoreCase>true</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="XpathMatch" id="6d8c01f9-47e3-4f4b-8058-8654e37ea3dd"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>GetAllProducts</con:operation><con:request name="XpathMatch" id="33cb6b41-6ae0-4b97-a1c1-327b1c917a5d" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:RetailLogin soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <credentials xsi:type="nam:credentials" xs:type="type:credentials" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+            <password xsi:type="xsd:string" xs:type="type:string">p1Oj4us</password>
+         </credentials>
+      </urn:RetailLogin>
+   <sessiondata xs:type="type:sessiondetail" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance"><sessionid xs:type="type:string"/><username xs:type="type:string"/></sessiondata></soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="1b8a0f74-4931-4946-a36c-4dcf24493089"/><con:assertion type="XPath Match" id="303ac5ff-1a92-4f51-9b85-6fac8c961478" name="XPath Match"><con:configuration><path>//role/text()</path><content>customer</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetAllProd" id="5e1a6bfa-891b-43f3-8c6b-4b3b7b9bb62c"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>GetAllProducts</con:operation><con:request name="GetAllProd" id="5fd3dc23-4d12-4933-a3b0-01d39af13132" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="sudhirpradhan89@gmail.com" value="fwD392UaHq1499705013" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetAllProducts soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+           <sessionid xsi:type="xsd:string" xs:type="type:string">3FwelXLO9s1499794468</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+         </sessiondata>
+      </urn:GetAllProducts>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="32338116-7327-45ca-b9fd-d96b8dd5b12c" disabled="true"/><con:assertion type="XPath Match" id="6b3897c4-7e17-4564-9861-b6d61e282d79" name="XPath Match"><con:configuration><path>//item[2]/product_name//text()</path><content>BMW</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="b6652081-d1e1-4461-be52-a4b796e399a8" name="textRegexmatch"><con:configuration><path>//item[2]/product_name/text()</path><content>BMW</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="ba5c6691-51d8-4472-9c8e-fd2d7d1be4be" name="countxpath"><con:configuration><path>count(//item/product_id)</path><content>4</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="5d13ecbe-46cc-45fd-9685-0016c86672f0" name="Exists Xpath"><con:configuration><path>exists(//item[2]/product_name/text())</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="be89e415-5fdf-407a-b6d0-086f9d3f1201" name="Matches"><con:configuration><path>matches(//item[1]/product_name/text(),'[a-zA-Z]*')</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="15724ba4-a972-4f85-9749-93164fe4c5b0" name="XQuery Match"><con:configuration><path>&lt;result>
+{
+matches(//item[1]/product_name/text(),'[a-zA-Z]*')
+}
+{
+data(//item[product_name='BMW'])
+}
+{for $x in //allproducts/item
+ return  &lt;Name>{data($x/product_name)}&lt;/Name>
+}
+
+&lt;/result></path><content><![CDATA[<result>
+  true
+                  1
+                  3
+                  BMW
+                  11552
+                  12
+  <Name>Puma</Name>
+  <Name>BMW</Name>
+  <Name>Nike</Name>
+  <Name>Pulser</Name>
+</result>]]></content><allowWildcards>false</allowWildcards></con:configuration></con:assertion><con:assertion type="XPath Match" id="a592d6d3-4233-4d1a-bfb6-00bdd0200d1f" name="DataXpath"><con:configuration><path>data(//item[product_name='Puma'])</path><content>
+                  3
+                  1
+                  Puma
+                  2000
+                  57
+               </content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="5046ba96-df1e-4118-bfab-3068f341ed61" name="XQuery with for loop"><con:configuration><path><![CDATA[<result>
+
+{for $x in //allproducts/item
+ return  <Name>{data($x/product_name)}</Name>
+}
+
+{for $y in //allproducts/item
+ return  <all>{data($y)}</all>
+}
+
+
+</result>]]></path><content><![CDATA[<result>
+  <Name>Puma</Name>
+  <Name>BMW</Name>
+  <Name>Nike</Name>
+  <Name>Pulser</Name>
+  <all>3
+                  1
+                  Puma
+                  2000
+                  57</all>
+  <all>1
+                  3
+                  BMW
+                  11552
+                  12</all>
+  <all>3
+                  4
+                  Nike
+                  11552
+                  122</all>
+  <all>4
+                  6
+                  Pulser
+                  2000
+                  5</all>
+</result>]]></content><allowWildcards>false</allowWildcards></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="47e506a9-c2f2-4d18-b6d7-d05d129dab9a" name="Response SLA"><con:configuration><SLA>210</SLA></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="5d4772a8-f9f9-4cc0-9030-6fe63fb3899e" name="Invalid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Schema Compliance" id="6ac77948-4a2d-4747-97e5-0ca5c47250a0" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Login_Cust" id="a89c784c-c1db-4b8c-b862-db35415f3e39"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>RetailLogin</con:operation><con:request name="Login_Cust" id="573212ec-fb00-42f5-8fe3-b1fa1f0f51ec" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:RetailLogin soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <credentials xsi:type="nam:credentials" xs:type="type:credentials" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+            <password xsi:type="xsd:string" xs:type="type:string">p1Oj4us</password>
+         </credentials>
+      </urn:RetailLogin>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="aed00908-df74-4738-8580-070a03dff4ae"/><con:assertion type="XPath Match" id="7ffd6329-2f5a-48ed-9ed5-60e47ba4325a" name="XPath Match"><con:configuration><path>matches(//sessionid//text(),'[a-zA-Z0-9]\d')</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Xquery Match with medicare" id="e1ade46d-53a0-49fc-a2c8-0fa71650e9f6"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediCareSupplierSoap12</con:interface><con:operation>GetSupplierByCity</con:operation><con:request name="Xquery Match with medicare" id="181a66ed-2569-4531-9614-60e73f02e728" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/medicareSupplier.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net/">
+   <soap:Header/>
+   <soap:Body>
+      <web:GetSupplierByCity><!--Optional:-->
+         <web:City>New York</web:City>
+      </web:GetSupplierByCity>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a30e923b-b401-49b9-ade3-d5a5582ade94"/><con:assertion type="XQuery Match" id="c917871b-a03f-4cb1-8973-db7c669ea67c" name="XQuery Match"><con:configuration><path>declare namespace ns1='http://www.webservicex.net/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+&lt;result>
+{
+for $x in //ns1:GetSupplierByCityResponse/ns1:SupplierDataLists/ns1:SupplierDatas/ns1:SupplierData
+
+return(data($x/ns1:Telephone))
+
+}
+
+{
+for $x in //ns1:GetSupplierByCityResponse/ns1:SupplierDataLists/ns1:SupplierDatas/ns1:SupplierData
+
+
+return(data($x/ns1:SupplierNumber))
+}
+&lt;/result></path><content>&lt;result>0002 4401 7317 0608 3567 4802 4802 4235 2556 4332 3703 3903 6328 6328 6328 4740 7227 7227 6918 1801 6504 6504 3602 9522 6412 6412 7456 7456 0235 4001 4001 4015 4015 6603 2401 2401 0905 0905 4105 6007 3505 5102 5510 4311 2101 1401 2127 6809 6809 3608 3608 6143 1002 1002 3720 3720 0943 5011 5902 4301 3319 4181 8407 4870 3705 1850 1850 1850 1934 5371 8416 8416 5602 2702 8003 4502 4502 4502 4502 6702 6702 4906 3639 0303 1044 5422 5422 1516 1342 0115 0115 7105 7105 0866 3256 4049 4974 4974 4702 3747 3620 2611 1408 6672 3135 6334 2245 5627 8701 1202 4511 6337 3806 1147 8073 2596 5063 1001 2908 2908 2908 0078 0078   7824 1032 3165 0101 2841 7449 3319 7803 1747 7902 1211 4407 7406 2107 6050 4801 4730 5005 6461 3336 7805 9429 4917 4901 0504 8421 3864 4707 6601 3124  6114 1517 4874 4408 4185 4646 4646 3456 4817 1646 3630 3630 3802 5731 3604 4915 4640 6203 8102 6825 3107 3108 3418 6025 7204 3705 1605 7113 1154 5403 5452 0866 2556 1619 4811 5109 4010 4010 1008 0002 0002 5905 2115 6503 3001 4201 3657 8808 3206 2630 4008 4901 5004 4308 4811  7486 0110 3101 2903  1617 1803 2701 0002 3205 5313 6221 3212 3212 6602 1850 1402 4510 2601 4766 4412 3105 2103 9106 4937 7824 7409 4403 0503 7256 7106  7000 2516 4801 1001  1104 1600 2802 5771 3649 7501 3773 1804 4605 1008 4602 4025 1104 1004 1614 0002 6602 5602 5924 2801 2801 4001 5704 3174 3311 2331 2003 4710 1605 1605 4099 3530 3530 3617 3006 4107 4507 8103 3702 3926 4740 1729 3101 3101 2709 2709 2602  3801 3762 4559 4406 3609 5339 2415 3001 8415 2109 3308 0601 3620 2811 3620 1415 4802 3910 6708 1500 1802 4011 4011 1234 6113 2200 7703 8001 2201 4225 3004 2503 0512 4803 6662 3502 2901 5016 2805 2236 6803 6208 8503 0703 6645 3806 6318 7105 3503 9404 6518 0005 2140 6403 2507 2701 2705 1207 1825 5202 5603 3211 6705 7717 3031 1542 8208 8031 1948 1711 2700 8668 8668 8668 8668 3821 6430 4026 5105 4862 3816 1408 1522 5007 1220 2705 5501 0337 5108 2805 2805 4901 4901 3618 2538 2538 7006 1001 1437 2716 3303 4617 3720 2606 2606 2606 2606 8501 1002 4602 4915 4181 1024 1110 8424 8424 5702 2926 4513 3102 4701 4201 0429 2341 4003 1104 1729 6301 6705 1703 1548 2804 3111 2763 4511 4236 1538 4005 6335 3519 6810 4870 1908 7701 3275 8200 3802 1501 2716 6309 6309  2605 7416 8638 4731 6332 6332 4040 5951 4203 4203 2201 1406 1406 1406 5304 5304 5304 3644 2503 1201 1535 7349 1511 1703 6030 7476   4618 1815 1145 7909 1716 3002 4275 7239 2611 3119 1049 1049 4537 1716 4788 5432 1701 3459 4695 6930 6203 5707 0698 4111  2905 4404 2503 2208  3600 5170 1027 5004 3877 3877 3862 1406 2904 6206  1443 5002 7051 4403 6401 4800 4800 7458 3940 3736 1902  4022 4022 1545 8501 1307 42520127051883 0132600348 0133130001 0142190001 0147090001 0147980001 0147980001 0151600001 0157220001 0161890001 0180150426 0180150447 0209220001 0209220001 0209220001 0215790001 0219060001 0219060001 0226300001 0226940001 0235510001 0235510001 0237050001 0127051891 0243370001 0243370001 0256270002 0256270002 0131170001 0131930001 0131930001 0132500001 0132500001 0132600473 0147110001 0147110001 0150410001 0150410001 0174700001 0179360001 0180150429 0180150700 0180150725 0180150728 0180150735 0180150790 0199300001 0201720001 0201720001 0203210001 0203210001 0240620001 0317640001 0317640001 0317640002 0317640002 0320750001 0324870001 0251550001 0261380001 0262710001 0330250001 0335540001 0339980004 0273610001 0276660001 0276660001 0276660001 0280720001 0343100001 0361440001 0361440001 0369530002 0369530003 0380980004 0386580001 0386580001 0386580001 0386580001 0409920001 0409920001 0282933428 0282934254 0432520001 0440130001 0442480001 0442480001 0323160001 0329550001 0339460116 0339460116 0485620001 0485620001 0394940001 0394980001 0396950001 0414330004 0414330004 0514202416 0514202729 0514202813 0514202843 0514202875 0514202906 0514202917 0514202919 0514202993 0514203012 0514203116 0514203431 0514203469 0514203470 0514203586 0515010001 0442330001 0442720001 0535210001 0459400001 0462870001 0462870001 0462870001 0545950007 0545950007 0471720001 0471720001 0482160001 0568050199 0595090001 0597530001 0608680001 0622330001 0496780001 0636000096 0636000192 0648550001 0511150001 0673230001 0675850001 0514202661 0514202851 0514202866 0514202894 0514202900 0514202928 0514202934 0514202935 0514202998 0514203007 0514203016 0514203031 0514203071 0514203367 0514203378 0514203539 0514203544 0514203545 0514203547 0514203557 0527250001 0532240001 0703280001 0734800001 0734800001 0743680001 0746040001 0767900001 0550470001 0550470001 0779740001 0568050107 0817650001 0834620001 0568050194 0838530001 0852950001 0862430001 0865470001 0870200001 0875450001 0876600001 0880860001 0881680001 0893550001 0895570001 0904030001 0910910001 0634520001 0934950001 0972590001 0981100001 0647350001 0658030001 0659380001 0659380001 0666510001 0682000070 0682000070 1029250001 1029250002 1029250003 1029250008 1029250009 1029250010 1029250012 1029250017 1029250018 1029250019 1029250021 1029250023 1029250024 1029250029 1029250030 1029250032 1029250033 1029250038 1029250039 1029250040 1029250043 1029250048 1029250049 1029250050 1029250051 1029250052 1029250057 1029250058 1029250058 1029250061 1029250062 1029250064 1029250071 1029250079 1029250080 1029250086 1029250088 1029250094 1029250105 1029250115 1029250127 1029250133 1029250134 1029250143 1029250145 1029250146 1029250153 1029250164 1029250166 1029250167 1029250174 1029250180 1029250188 1029250189 1029250197 1029250198 1029250199 1029250201 1029250206 1029250207 1029250220 1029250221 1029250229 1029250231 1029250236 1029250246 1029250248 1029250256 1029250260 1029250267 0683460001 0701030001 0701030001 0702270001 1048560001 1090450001 0741800001 0749390001 0774100001 1123100001 1131260030 1131260030 1134770001 1143630001 1143630001 1179640001 0837790001 0869270001 0882740001 0892410001 0936500001 0939180001 0940920001 1217190001 1221640001 1221640001 1223150010 1223150010 1227420001 1234880001 0964880001 1243070001 1002920001 1249810003 1022480001 1029250004 1029250005 1029250006 1029250007 1029250013 1029250014 1029250015 1029250016 1029250020 1029250025 1029250026 1029250027 1029250028 1029250034 1029250035 1029250037 1029250044 1029250044 1029250045 1029250046 1029250047 1029250053 1029250070 1029250091 1029250093 1029250099 1029250109 1029250111 1029250117 1029250119 1029250120 1029250121 1029250122 1029250123 1029250129 1029250131 1029250137 1029250147 1029250148 1029250149 1029250150 1029250156 1029250169 1029250171 1029250173 1029250179 1029250185 1029250194 1029250196 1029250202 1029250209 1029250213 1029250214 1029250219 1029250233 1029250242 1029250243 1029250249 1029250251 1029250254 1029250259 1029250263 1029250264 1029250265 1029250266 1258770002 1259320001 1259320001 1259320001 1259320001 1265240001 1265310001 1266800001 1271590001 1271620001 1075700001 1075940001 1102800001 1107410001 1136490001 1143490001 1293030001 1297390001 1302070002 1148150001 1148150001 1161410001 1161410001 1176640001 1188020001 1188020001 1324860001 1325540001 3862610001 3874790001 3904390001 3906120002 4004660001 4046180001 4046180001 4046180001 4046180001 4058290001 1195882478 1198620001 4126330001 4130950001 4145190001 1254450001 1261120001 1261120001 1262140001 1264960001 1269060001 1278130001 1278700001 1291140001 1293880001 1298410001 1299230001 1300880001 4355570001 4382690001 1300950001 1303120001 1303460001 1307010001 1307600001 1309570001 1318730001 1323270001 1323760001 1323950001 3878080001 4432760001 4441300001 4475650001 4523760001 4553210001 4563000001 4585370001 3903850001 3986050001 4046770001 4653850001 4653850001 4675850001 4687380001 4710730001 4719860001 4761870001 4096910001 4096910001 4799460001 4811650001 4225090001 4225090001 4228110001 4250610001 4250610001 4250610001 4251320001 4251320001 4251320001 4297080001 4886010001 4917530001 4920750001 4928200001 4944210001 4948450001 4948450008 4948450009 4955710001 4956760001 5020790001 5023560001 5034200001 5037870001 5053140001 5067700001 5071010001 5086430001 5090550001 5112990001 5115140001 5115140001 5118660001 5126460001 5127930001 5167550001 5188070001 4371100001 4401550001 4428910001 4464600001 4494510001 4498120001 4506030001 4565920001 4610820001 4642730001 4687830001 4756510001 4774380001 4823270001 4835400001 4839220001 4845970001 4849300001 4849300001 4854960001 4867120001 4905030001 4938390001 4938870001 4948450002 4948450004 4948450005 5037660001 5044530001 5050520001 5050520001 5059320001 5100380001 5121300001 5129800001 5130250001 5135400001 5135400001 5145510001 5157840001 5181230001 5199030001&lt;/result></content><allowWildcards>false</allowWildcards></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="6777991c-d926-4626-a332-5d02b9d18603"><con:settings/><con:config><script>context.setProperty('name','sudhir')
+log.info context.getProperty('name')</script></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="70881eaa-1029-4b2e-913d-682a144cf094" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Module 11" searchProperties="true"><con:settings/><con:testStep type="request" name="Login_Cust" id="32aaea83-dbc5-45d8-bee3-6ddadb504458"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>RetailLogin</con:operation><con:request name="Login_Cust" id="573212ec-fb00-42f5-8fe3-b1fa1f0f51ec" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:RetailLogin soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <credentials xsi:type="nam:credentials" xs:type="type:credentials" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+            <password xsi:type="xsd:string" xs:type="type:string">p1Oj4us</password>
+         </credentials>
+      </urn:RetailLogin>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="aed00908-df74-4738-8580-070a03dff4ae"/><con:assertion type="XPath Match" id="7ffd6329-2f5a-48ed-9ed5-60e47ba4325a" name="XPath Match"><con:configuration><path>matches(//sessionid//text(),'[a-zA-Z0-9]\d')</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetAllProd" id="9dd38d30-d6bf-42f4-9f63-d649ace7449e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>GetAllProducts</con:operation><con:request name="GetAllProd" id="5fd3dc23-4d12-4933-a3b0-01d39af13132" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="sudhirpradhan89@gmail.com" value="fwD392UaHq1499705013" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetAllProducts soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+           <sessionid xsi:type="xsd:string" xs:type="type:string">9A4dCn6SY31500351402</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+         </sessiondata>
+      </urn:GetAllProducts>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="32338116-7327-45ca-b9fd-d96b8dd5b12c" disabled="true"/><con:assertion type="XPath Match" id="6b3897c4-7e17-4564-9861-b6d61e282d79" name="XPath Match"><con:configuration><path>//item[2]/product_name//text()</path><content>BMW</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="b6652081-d1e1-4461-be52-a4b796e399a8" name="textRegexmatch"><con:configuration><path>//item[2]/product_name/text()</path><content>BMW</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="ba5c6691-51d8-4472-9c8e-fd2d7d1be4be" name="countxpath"><con:configuration><path>count(//item/product_id)</path><content>4</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="5d13ecbe-46cc-45fd-9685-0016c86672f0" name="Exists Xpath"><con:configuration><path>exists(//item[2]/product_name/text())</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="be89e415-5fdf-407a-b6d0-086f9d3f1201" name="Matches"><con:configuration><path>matches(//item[1]/product_name/text(),'[a-zA-Z]*')</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="15724ba4-a972-4f85-9749-93164fe4c5b0" name="XQuery Match"><con:configuration><path>&lt;result>
+{
+matches(//item[1]/product_name/text(),'[a-zA-Z]*')
+}
+{
+data(//item[product_name='BMW'])
+}
+{for $x in //allproducts/item
+ return  &lt;Name>{data($x/product_name)}&lt;/Name>
+}
+
+&lt;/result></path><content><![CDATA[<result>
+  true
+                  1
+                  3
+                  BMW
+                  11552
+                  12
+  <Name>Puma</Name>
+  <Name>BMW</Name>
+  <Name>Nike</Name>
+  <Name>Pulser</Name>
+</result>]]></content><allowWildcards>false</allowWildcards></con:configuration></con:assertion><con:assertion type="XPath Match" id="a592d6d3-4233-4d1a-bfb6-00bdd0200d1f" name="DataXpath"><con:configuration><path>data(//item[product_name='Puma'])</path><content>
+                  3
+                  1
+                  Puma
+                  2000
+                  57
+               </content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="5046ba96-df1e-4118-bfab-3068f341ed61" name="XQuery with for loop"><con:configuration><path><![CDATA[<result>
+
+{for $x in //allproducts/item
+ return  <Name>{data($x/product_name)}</Name>
+}
+
+{for $y in //allproducts/item
+ return  <all>{data($y)}</all>
+}
+
+
+</result>]]></path><content><![CDATA[<result>
+  <Name>Puma</Name>
+  <Name>BMW</Name>
+  <Name>Nike</Name>
+  <Name>Pulser</Name>
+  <all>3
+                  1
+                  Puma
+                  2000
+                  57</all>
+  <all>1
+                  3
+                  BMW
+                  11552
+                  12</all>
+  <all>3
+                  4
+                  Nike
+                  11552
+                  122</all>
+  <all>4
+                  6
+                  Pulser
+                  2000
+                  5</all>
+</result>]]></content><allowWildcards>false</allowWildcards></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="47e506a9-c2f2-4d18-b6d7-d05d129dab9a" name="Response SLA"><con:configuration><SLA>2500</SLA></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="5d4772a8-f9f9-4cc0-9030-6fe63fb3899e" name="Invalid HTTP Status Codes"><con:configuration><codes>201</codes></con:configuration></con:assertion><con:assertion type="Schema Compliance" id="6ac77948-4a2d-4747-97e5-0ca5c47250a0" name="Schema Compliance" disabled="true"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Reading and retriveing the data" id="661f24e1-4465-4490-b445-eb06d7142f20"><con:settings/><con:config><script>import com.eviware.soapui.support.XmlHolder
+
+log.info 'sudhir'
+def req1=context.expand('${GetAllProd#response}')
+log.info req1
+
+def req=context.expand('${Login_Cust#request}')
+def holder =new XmlHolder(req1)
+holder.getNodeValue('//product_name')
+holder.getNodeValues('//product_name')
+
+def items=holder.getNodeValues('//product_name')
+log.info items.length
+for (x in items)
+{log.info x}
+
+def price=holder.getNodeValues('//price')
+log.info price.length
+for (y in price)
+{log.info y}
+
+for(i=0;i&lt;=price.length-1;i++)
+{
+log.info (items[i]+'-------->'+price[i])
+}
+
+log.info req1
+log.info holder.getNodeValue("matches(//item[2]/price,'[0-9]{1,}')")
+
+log.info holder.getNodeValue("matches(//item[2]/price,'[0-9]{52,}')")
+
+context.setProperty('name','sudhir')
+
+def login=context.expand('${Login_Cust#response}')
+def response=new XmlHolder(login)
+context.setProperty('sessionid',response.getNodeValue('//sessionid'))
+</script></con:config></con:testStep><con:testStep type="groovy" name="getProperty" id="4429774a-925a-460d-8c83-53f934fe3f6b"><con:settings/><con:config><script>import com.eviware.soapui.support.XmlHolder
+
+log.info 'sudhir'
+
+
+log.info context.getProperty('sessionid')</script></con:config></con:testStep><con:testStep type="request" name="citybyname" id="4ee39817-bb62-46e5-8156-4e0b9462d6c8"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MediCareSupplierSoap12</con:interface><con:operation>GetSupplierByCity</con:operation><con:request name="citybyname" id="08606ad0-52c7-4fb3-a884-4510e6e3544d" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/medicareSupplier.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net/">
+   <soap:Header/>
+   <soap:Body>
+      <web:GetSupplierByCity><web:City>New York</web:City></web:GetSupplierByCity>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="cc784d8a-59cb-404e-8622-00b6c6fd679a"/><con:assertion type="XPath Match" id="c2a4970e-3d2f-4b97-9e05-602bee722e2a" name="XPath Match"><con:configuration><path>declare namespace ns1='http://www.webservicex.net/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+//ns1:SupplierDatas/ns1:SupplierData[1]/ns1:SupplierNumber</path><content>0127051883</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>9dd38d30-d6bf-42f4-9f63-d649ace7449e</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="ef31fde2-a370-475b-9d3a-b165c7d341c0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Module 13" searchProperties="true"><con:settings/><con:testStep type="properties" name="Data" id="6b569f08-19cd-42c8-9019-471f79a5c2db"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:source>C:/Users/PC/Desktop/SOAP Project/project.properties</con:source><con:properties><con:property><con:name>category_name</con:name><con:value>Shoes</con:value></con:property><con:property><con:name>product_name</con:name><con:value>Suzic	</con:value></con:property><con:property><con:name>available_quantity</con:name><con:value>25</con:value></con:property><con:property><con:name>price</con:name><con:value>250000</con:value></con:property><con:property><con:name>category_xpath</con:name><con:value>//category_name</con:value></con:property><con:property><con:name>quantity</con:name><con:value>10</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="getsessioid" id="c8bbe8d8-1f6f-476b-aac3-507807fae717"><con:settings/><con:config><script>import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+import com.eviware.soapui.support.XmlHolder
+import com.eviware.soapui.support.GroovyUtils
+
+
+def myproject=testRunner.testCase.testSuite.project
+loginrequest=myproject.testSuites['Project'].testCases['TestCase 1'].testSteps['Login_Cust']
+def logincontext=new WsdlTestRunContext(loginrequest)
+loginrequest.run(testRunner,logincontext)
+def response=logincontext.expand('${Login_Cust#response}')
+def holder=new XmlHolder(response)
+def sessionid=holder.getNodeValue('//sessionid')
+log.info sessionid
+//set the session id in another request
+
+/*------------------//Way1---------------------------------------------------*/
+//too get the getallproduct request
+def request=logincontext.expand('${GetAllProd#request}')
+def reqholder=new XmlHolder(request)
+reqholder.setNodeValue('//sessionid',sessionid)
+reqholder.setNodeValue('//username','sudhirpradhan89@gmail.com')
+def requestxml=reqholder.getXml()
+testRunner.testCase.getTestStepByName('GetAllProd').setPropertyValue('request',requestxml)
+/*-----------------------------//Way2 --------------------------------------*/
+//Using Groovyutiles
+def groovyUtils = new GroovyUtils(context)  
+reqholder=groovyUtils.getXmlHolder('GetAllProd#request')
+reqholder.setNodeValue('//sessionid',sessionid)
+reqholder.setNodeValue('//username','sudhirpradhan89@gmail.com')
+reqholder.updateProperty()
+//reqholder.run()
+ requestxml
+
+/*------------------------//Way3 -----------------*/
+myproject.setPropertyValue('sessionid',sessionid)
+myproject.setPropertyValue('username','sudhirpradhan89@gmail.com')
+testRunner.testCase.getTestStepByName('GetAllProd').run(testRunner,context)
+
+
+
+
+</script></con:config></con:testStep><con:testStep type="request" name="GetAllProd" id="f813ca97-7ff8-4639-807f-ddebbadcf544"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>GetAllProducts</con:operation><con:request name="GetAllProd" id="6a8cf28c-2d49-4a89-b095-827e7c5093c4" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetAllProducts soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+           <sessionid xsi:type="xsd:string" xs:type="type:string">DVIW0e71wi1500954601</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+         </sessiondata>
+      </urn:GetAllProducts>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="50ccc31d-de6c-4118-a125-fa451788df55"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="Allprod" id="e20af4b4-d26c-4913-b579-cc6eba3a2347"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>addproduct</con:operation><con:request name="Allprod" id="820f290a-25ae-4cd1-b2aa-e077585890ac" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:addproduct soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <productdetails xsi:type="nam:addnewproductdetails" xs:type="type:addnewproductdetails" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 4 items in any order-->
+            <category_name xsi:type="xsd:string" xs:type="type:string">${Data#category_name}</category_name>
+            <product_name xsi:type="xsd:string" xs:type="type:string">${Data#product_name}</product_name>
+            <available_quantity xsi:type="xsd:string" xs:type="type:string">${Data#available_quantity}</available_quantity>
+            <price xsi:type="xsd:string" xs:type="type:string">${Data#price}</price>
+         </productdetails>
+         <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <sessionid xsi:type="xsd:string" xs:type="type:string">${#Project#sessionid}</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">${#Project#username}</username>
+         </sessiondata>
+      </urn:addproduct>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3c143890-5f40-4548-b950-9b8ea8924e81"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="ReadResponse" id="ee1c244a-50c8-4b4d-b1db-f544956de523"><con:settings/><con:config><script>import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+import com.eviware.soapui.support.XmlHolder
+def response=context.expand('${Allprod#response}')
+def catagory_xpath=context.expand('${Data#category_xpath}')
+
+def holder=new XmlHolder(response)
+def value=holder.getNodeValue(catagory_xpath)
+
+
+</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>6b569f08-19cd-42c8-9019-471f79a5c2db</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="82770f8a-e2a7-4e6c-a5a5-b378a9da2ab9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Module 12" searchProperties="true"><con:settings/><con:testStep type="groovy" name="testRunner 1" id="b0a58d73-6fc0-4fd7-b2be-24988fb9a74f"><con:settings/><con:config><script>//Project 
+//Test Suite
+//Test Case 
+//Test Step
+import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+import com.eviware.soapui.support.XmlHolder
+
+log.info 'A started'
+
+testCase=testRunner.testCase
+testSuite=testRunner.testCase.testSuite
+proj=testRunner.testCase.testSuite.project
+
+scriptlevel=proj.testSuites['Project'].testCases['Module 10'].testSteps['Login_Cust']
+mystep=testSuite.testCases['Module 10'].testSteps['Login_Cust']
+def wsdltestconext=new WsdlTestRunContext(mystep)
+mystep.run(testRunner,wsdltestconext)
+
+def response=wsdltestconext.expand('${Login_Cust#response}')
+def sessionid=new XmlHolder(response)
+log.info sessionid.getNodeValue('//sessionid')
+
+
+</script></con:config></con:testStep><con:testStep type="groovy" name="Failing the TC" id="cb2d361f-5be3-4215-9565-283b80452715"><con:settings/><con:config><script>log.info 'A started'
+
+//testRunner.fail('Fail the TC')
+//testRunner.cancel('cancellation becz of not req.')
+log.info 'A Ending'
+</script></con:config></con:testStep><con:testStep type="groovy" name="TestRunner Cancelled" id="ea47bacb-dd1f-4b05-8509-ba1966323723"><con:settings/><con:config><script>//change or get the state of test using testRunner
+import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+import com.eviware.soapui.support.XmlHolder
+log.info "Run the Job"
+
+testsuite=testRunner.testCase.testSuite
+myrun=testsuite.testCases['Module 11'].testSteps['citybyname']
+def tesStepresponsecontext= new WsdlTestRunContext(myrun)
+myrun.run(testRunner,tesStepresponsecontext)
+
+def response=tesStepresponsecontext.expand('${citybyname#response}')
+//def response=tesStepresponsecontext.expand('{$Login_Cust#response}')
+def getvalue=new XmlHolder(response)
+def fed= getvalue.getNodeValue('//SupplierDatas[1]/SupplierData[1]/SupplierNumber')
+
+
+//log.info "Job completed"</script></con:config></con:testStep><con:testStep type="groovy" name="citybyname" id="36b98c0c-5209-4586-8c9e-4d601777436d"><con:settings/><con:config><script>import com.eviware.soapui.impl.wsdl.testcase.WsdlTestRunContext
+import com.eviware.soapui.support.XmlHolder
+testsuite=testRunner.testCase.testSuite
+teststep=testsuite.testCases['Module 11'].testSteps['citybyname']
+//to get the access and run the test case
+def resread=new WsdlTestRunContext(teststep)
+teststep.run(testRunner,resread)
+//to strore the response details in a variable 
+def response=resread.expand('${citybyname#response}')
+//to read the response
+def cityname=new XmlHolder(response)
+log.info response
+//to get the node value  ns1
+cityname.namespaces['ns1']='http://www.webservicex.net/'
+//get the node value
+def SupplierData = cityname["count(//ns1:SupplierDatas/ns1:SupplierData)"]
+def j=log.info SupplierData
+log.info cityname.getNodeValue('//ns1:SupplierDatas/ns1:SupplierData[2]/ns1:SupplierNumber')
+</script></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>cb2d361f-5be3-4215-9565-283b80452715</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>b0a58d73-6fc0-4fd7-b2be-24988fb9a74f</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:testCase id="f1141d38-8767-454e-9968-0bdbbe48080d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddProd" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="59c4c937-10be-48b3-8bea-d05f2fede06c"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>category_name</con:name><con:value>Bikes</con:value></con:property><con:property><con:name>product_name</con:name><con:value>DUKE</con:value></con:property><con:property><con:name>available_quantity</con:name><con:value>25</con:value></con:property><con:property><con:name>price</con:name><con:value>200455</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="request" name="Allprod" id="1c018eb5-7805-49b6-a022-299c37f9e7de"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>addproduct</con:operation><con:request name="Allprod" id="820f290a-25ae-4cd1-b2aa-e077585890ac" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:addproduct soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <productdetails xsi:type="nam:addnewproductdetails" xs:type="type:addnewproductdetails" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 4 items in any order-->
+            <category_name xsi:type="xsd:string" xs:type="type:string">${Properties#category_name}</category_name>
+            <product_name xsi:type="xsd:string" xs:type="type:string">${Properties#product_name}</product_name>
+            <available_quantity xsi:type="xsd:string" xs:type="type:string">${Properties#available_quantity}</available_quantity>
+            <price xsi:type="xsd:string" xs:type="type:string">${Properties#price}</price>
+         </productdetails>
+         <sessiondata xsi:type="nam:sessiondetail" xs:type="type:sessiondetail" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <sessionid xsi:type="xsd:string" xs:type="type:string">${#Project#sessionid}</sessionid>
+            <username xsi:type="xsd:string" xs:type="type:string">${#Project#username}</username>
+         </sessiondata>
+      </urn:addproduct>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3c143890-5f40-4548-b950-9b8ea8924e81"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>59c4c937-10be-48b3-8bea-d05f2fede06c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:properties><con:property><con:name>customer_username</con:name><con:value>sudhirpradhan89@gmail.com</con:value></con:property><con:property><con:name>customer_password</con:name><con:value>p1Oj4us</con:value></con:property></con:properties><con:reportParameters/></con:testSuite><con:testSuite id="c0ad9530-c7fc-4766-b20f-060d5dd75b78" name="Learning PropertyTransfer"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="9748b531-7bce-480d-8944-6edf23c29a2a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="request" name="Test Request" id="be21a0ac-da04-4626-a989-395e12fe4390"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>RetailLogin</con:operation><con:request name="Test Request" id="cb9e0e2d-6ccd-40df-ad8c-3654fa71dd6f" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:RetailLogin soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <credentials xsi:type="nam:credentials" xs:type="type:credentials" xmlns:nam="http://localhost/retail/namespaces" xmlns:xs="http://www.w3.org/2000/XMLSchema-instance">
+            <!--You may enter the following 2 items in any order-->
+            <username xsi:type="xsd:string" xs:type="type:string">sudhirpradhan89@gmail.com</username>
+            <password xsi:type="xsd:string" xs:type="type:string">p1Oj4us</password>
+         </credentials>
+      </urn:RetailLogin>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="a191861b-f382-49b1-aecb-0afe47b46ad8"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="ff8482b3-e66b-4eac-9e84-efd939a98a74"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>sessionid</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Test Request</con:sourceStep><con:sourcePath>//sessionid</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>GetAllProd</con:targetStep><con:targetPath>//sessionid</con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>username</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Test Request</con:sourceStep><con:sourcePath>//loginusername</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>GetAllProd</con:targetStep><con:targetPath>//username</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="GetAllProd" id="64a7fff8-9e0d-4195-95d1-ef8041676e6d"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>RetailAppBinding</con:interface><con:operation>GetAllProducts</con:operation><con:request name="GetAllProd" id="5fd3dc23-4d12-4933-a3b0-01d39af13132" defaultOutgoingWss="" defaultIncomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="sudhirpradhan89@gmail.com" value="fwD392UaHq1499705013" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/retail/retail.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:RetailApp">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:GetAllProducts soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <sessiondata xsi:type="nam:sessiondetail" xmlns:nam="http://localhost/retail/namespaces">
+            <!--You may enter the following 2 items in any order-->
+            <sessionid xsi:type="xsd:string">5asgdq3G8b1500994700</sessionid>
+            <username xsi:type="xsd:string">sudhirpradhan89@gmail.com</username>
+         </sessiondata>
+      </urn:GetAllProducts>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="32338116-7327-45ca-b9fd-d96b8dd5b12c" disabled="true"/><con:assertion type="XPath Match" id="6b3897c4-7e17-4564-9861-b6d61e282d79" name="XPath Match"><con:configuration><path>//item[2]/product_name//text()</path><content>BMW</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="b6652081-d1e1-4461-be52-a4b796e399a8" name="textRegexmatch"><con:configuration><path>//item[2]/product_name/text()</path><content>BMW</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="ba5c6691-51d8-4472-9c8e-fd2d7d1be4be" name="countxpath"><con:configuration><path>count(//item/product_id)</path><content>4</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="5d13ecbe-46cc-45fd-9685-0016c86672f0" name="Exists Xpath"><con:configuration><path>exists(//item[2]/product_name/text())</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="be89e415-5fdf-407a-b6d0-086f9d3f1201" name="Matches"><con:configuration><path>matches(//item[1]/product_name/text(),'[a-zA-Z]*')</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="15724ba4-a972-4f85-9749-93164fe4c5b0" name="XQuery Match"><con:configuration><path>&lt;result>
+{
+matches(//item[1]/product_name/text(),'[a-zA-Z]*')
+}
+{
+data(//item[product_name='BMW'])
+}
+{for $x in //allproducts/item
+ return  &lt;Name>{data($x/product_name)}&lt;/Name>
+}
+
+&lt;/result></path><content><![CDATA[<result>
+  true
+                  1
+                  3
+                  BMW
+                  11552
+                  12
+  <Name>Puma</Name>
+  <Name>BMW</Name>
+  <Name>Nike</Name>
+  <Name>Pulser</Name>
+</result>]]></content><allowWildcards>false</allowWildcards></con:configuration></con:assertion><con:assertion type="XPath Match" id="a592d6d3-4233-4d1a-bfb6-00bdd0200d1f" name="DataXpath"><con:configuration><path>data(//item[product_name='Puma'])</path><content>
+                  3
+                  1
+                  Puma
+                  2000
+                  57
+               </content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XQuery Match" id="5046ba96-df1e-4118-bfab-3068f341ed61" name="XQuery with for loop"><con:configuration><path><![CDATA[<result>
+
+{for $x in //allproducts/item
+ return  <Name>{data($x/product_name)}</Name>
+}
+
+{for $y in //allproducts/item
+ return  <all>{data($y)}</all>
+}
+
+
+</result>]]></path><content><![CDATA[<result>
+  <Name>Puma</Name>
+  <Name>BMW</Name>
+  <Name>Nike</Name>
+  <Name>Pulser</Name>
+  <all>3
+                  1
+                  Puma
+                  2000
+                  57</all>
+  <all>1
+                  3
+                  BMW
+                  11552
+                  12</all>
+  <all>3
+                  4
+                  Nike
+                  11552
+                  122</all>
+  <all>4
+                  6
+                  Pulser
+                  2000
+                  5</all>
+</result>]]></content><allowWildcards>false</allowWildcards></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="47e506a9-c2f2-4d18-b6d7-d05d129dab9a" name="Response SLA"><con:configuration><SLA>2500</SLA></con:configuration></con:assertion><con:assertion type="Invalid HTTP Status Codes" id="5d4772a8-f9f9-4cc0-9030-6fe63fb3899e" name="Invalid HTTP Status Codes"><con:configuration><codes>201</codes></con:configuration></con:assertion><con:assertion type="Schema Compliance" id="6ac77948-4a2d-4747-97e5-0ca5c47250a0" name="Schema Compliance" disabled="true"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>be21a0ac-da04-4626-a989-395e12fe4390</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties><con:property><con:name>sessionid</con:name><con:value>DVIW0e71wi1500954601</con:value></con:property><con:property><con:name>username</con:name><con:value>sudhirpradhan89@gmail.com</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:authRepository/><con:sensitiveInformation/></con:soapui-project>
